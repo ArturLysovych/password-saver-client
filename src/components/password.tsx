@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import eye_img from '../home/assets/eye.png';
+import eye_img from '../app/home/assets/eye.png';
 interface PasswordItemProps {
   service: string;
   password: string;

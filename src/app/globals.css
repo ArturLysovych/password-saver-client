@@ -46,3 +46,8 @@ body {
 .password {
   @apply w-full h-20 bg-red-400 rounded-md mt-3 flex items-center justify-between text-white p-8;
 }
+
+::selection {
+  background: #f87171;
+  color: #FFFFFF;
+}
