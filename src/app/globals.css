@@ -15,11 +15,34 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+::-webkit-scrollbar {
+  width: 10px;
+  border-top-right-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e3e3e3;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
 
 body {
   color: rgb(var(--foreground-rgb));
 }
 
+.max-h-120 {
+  max-height: 480px;
+}
+
+.h-120 {
+  height: 480px;
+}
+
 .register-input, .login-input {
   @apply w-full outline-none border-2 p-2 pl-3 rounded-md;
+}
+.password {
+  @apply w-full h-20 bg-red-400 rounded-md mt-3 flex items-center justify-between text-white p-8;
 }

@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link"
-import axios from "axios"
 import { useState } from "react"
+import axios from "axios"
 
 export default function LogForm() {
     const [loginVal, setLoginVal] = useState('');
@@ -9,12 +9,18 @@ export default function LogForm() {
 
     const user = { login: loginVal, password: passwordVal };
     
-    const postUser = (user: Object) => {
+    const postUser = (user: any) => {
         const postData = user;
 
         axios.post('http://localhost:3001/users/login-user', postData)
         .then((response) => {
-            if(response.data === true) alert('Succesfully login');
+            if(response.data.login === user.login) {
+                alert('Succesfully login');
+                const queryString = `?_id=${response.data._id}&?login=${response.data.login}&?password=${response.data.password}&?email=${response.data.email}`;
+                const newPath = `/home${queryString}`;
+              
+                window.location.href = newPath;
+            }
             else if (response.data === false) alert('False data');
             else alert(response.data);
         })
@@ -27,7 +33,8 @@ export default function LogForm() {
                     e.preventDefault();
                     postUser(user);
                 }}
-            >              <h2 className="text-center text-lg">Login here</h2>
+            >
+              <h2 className="text-center text-lg">Login here</h2>
               <input type="text" placeholder="Login" className="login-input" 
                 value={loginVal}
                 onChange={(e) => setLoginVal(e.target.value)}
