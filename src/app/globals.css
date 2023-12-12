@@ -19,3 +19,7 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+.register-input {
+  @apply w-full outline-none border-2 p-2 pl-3 rounded-md;
+}
